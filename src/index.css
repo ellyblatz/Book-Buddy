@@ -1,6 +1,5 @@
 body {
   font-family: Georgia, serif;
-  background-color: #f8f8f8;
   margin: 0;
   padding: 0;
 }
@@ -15,7 +14,7 @@ body {
 nav{
   display: flex;
   justify-content: space-around;
-  background-color: lightgreen;
+  background-color: maroon;
 }
 
 nav span{
@@ -25,9 +24,50 @@ nav span{
 
 nav a{
   padding: 1rem;
+  color: white;
 }
 
 .registerForm {
   display: flex;
   flex-wrap: wrap;
+}
+
+h2 {
+display:flex;
+justify-content: center;
+}
+
+h3 {
+  display:flex;
+  justify-content: center;
+  }
+
+h4 {
+  display:flex;
+  justify-content: center;
+
+  text-align: center;
+    
+  margin-left: 15rem;
+  margin-right: 15rem;
+  }
+
+
+
+.singleBookCover {
+  display:flex;
+}
+
+
+.single {
+  justify-self: center;
+  width: 25%;
+  height: 25%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.bookTitles {
+  line-height: 20px;
 }
