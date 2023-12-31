@@ -9,7 +9,7 @@ const Books = ({books}) => {
         <div>
 
             <h1>Check out our Books: </h1>
-            
+            <div className="bookTitles">
             <ul> { 
                 books.map((book) =>{
                     return (
@@ -25,7 +25,7 @@ const Books = ({books}) => {
                 }
 
             </ul>
-            
+            </div>
         
         </div>
     )

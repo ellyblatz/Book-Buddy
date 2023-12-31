@@ -11,6 +11,10 @@ import SuccessRegi from './components/SuccessRegi'
 import Homepage from './components/Homepage'
 import SingleBook from './components/SingleBook'
 import BookCheckout from './components/BookCheckout'
+import About from './components/About'
+
+
+
 
 function App() {
   const [token, setToken] = useState(null)
@@ -75,6 +79,8 @@ function App() {
       <Route path='/register' element={<Register />}/>
       <Route path='/account' element={<Account user={user} setUser={setUser} setToken={setToken}/>}/>
       <Route path='/BookCheckout' element={<BookCheckout books={books} user={user} token={token}/>}/>
+      <Route path='/About' element={<About/>}/>
+
 
     </Routes>
 
