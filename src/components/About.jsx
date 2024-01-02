@@ -1,6 +1,7 @@
+
 const About = () =>{
     return (
-        <div> <h1> Welcome to our Library!</h1>
+        <div class='about'> <h1> Welcome to our Library!</h1>
 
         <h2> About Us</h2>
             <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum atque quaerat natus ipsa voluptate molestias vel rerum ullam iusto obcaecati tempora rem vitae aspernatur veritatis maxime, eos quidem voluptatum exercitationem. </h5>

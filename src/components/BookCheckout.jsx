@@ -1,45 +1,51 @@
-import axios from "axios";
+import axios from "axios"
+import { useParams, useNavigate } from "react-router-dom"
+
+const BookCheckout = ({books, user, setUser, token}) =>{
+
+    const params = useParams()
+    const id = params.id*1
+
+    const navigate = useNavigate()
 
 
-const BookCheckout = ({book, user, token}) =>{
+    const book = books.find ((book)=> {
+        return book.id === id
+    }) 
 
-    const handleCheckout = async () => {
-        try {
-            const response = await axios.patch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/${book.id}`,
-            {
-                available: false,
-            }, 
-            {
+    const handleCheckout = async (event) => {
+        event.preventDefault()
+
+        const loggedInToken = window.localStorage.getItem('token')
+
+        if(loggedInToken) {
+            const response = await axios.patch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/books/${book.id}`, {available: false}, {
                 headers: {
-                    'Content-Type': application/json,
-                    Authorization: `Bearer ${token}`
-                },
-            }
-            )
-        if (response.status>= 200 && response.status <300) {
-            const result= response.data
-            //console.log(result)
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${loggedInToken}`
+                }
+                })
+                //console.log({user})
+                 setUser({books: [...user.books], book})
+                 navigate(`/account`)
+              //  console.log(response)
+
         } else {
-            throw new Error('Oops! Something went wrong.')
+            throw 'no token'
         }
-        } catch (error) {
-            console.log(error)
-        }
+
     }
-    
+
+    return (
+        <div className="checkout">
+            <button disabled={(book.available && id) ? false : true} onClick={handleCheckout}>
+                Check Me Out!
+            </button>
+
+        </div>
+    )
 
 
-
-
-
-
-
-        return (
-            <div>
-                <h3>Am I Available?: {book.available ? 'Available' : 'Not Available'}</h3>
-                <button onClick={handleCheckout}>Check Me Out!</button>
-            </div>
-        )
 }
 
 export default BookCheckout 

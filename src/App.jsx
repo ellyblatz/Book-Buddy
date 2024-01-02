@@ -12,7 +12,7 @@ import Homepage from './components/Homepage'
 import SingleBook from './components/SingleBook'
 import BookCheckout from './components/BookCheckout'
 import About from './components/About'
-
+import SearchBar from './components/SearchBar'
 
 
 
@@ -70,8 +70,9 @@ function App() {
     <>
     <h1><img id='logo-image' src={bookLogo}/><Link to='/'>Library App</Link></h1>
     <Navigations user={user}/>
+   
     <Routes>
-      <Route path='/' element={<Homepage/>}/>
+      <Route path='/' element={<Homepage books={books}/>}/>
       <Route path='/successReg' element={<SuccessRegi />}/>
       <Route path='/books' element={<Books books={books} token={token}/>}/>
       <Route path ='/books/:id' element={<SingleBook books={books} user={user} token={token}/> }  />
@@ -80,10 +81,11 @@ function App() {
       <Route path='/account' element={<Account user={user} setUser={setUser} setToken={setToken}/>}/>
       <Route path='/BookCheckout' element={<BookCheckout books={books} user={user} token={token}/>}/>
       <Route path='/About' element={<About/>}/>
-
-
     </Routes>
 
+ <div className="search">
+        <SearchBar books={books} />
+    </div>
       
     </>
   )

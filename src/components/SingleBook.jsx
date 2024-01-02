@@ -24,7 +24,9 @@ if (!book) {
              <h4>{book.description}</h4>
             <h3>available: </h3>
 
-            <button onClick="handleCheckout">Check Me Out!</button>
+            <div className="search">
+        <BookCheckout books={books} />
+    </div>
             <hr/>
 
             <Link to='/books'>

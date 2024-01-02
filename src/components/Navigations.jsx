@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import SearchBar from "./SearchBar"
 
 const Navigations = ({user}) => {
     
@@ -7,6 +8,7 @@ const Navigations = ({user}) => {
         <nav>
             <Link to='/books'>Books</Link>
             <Link to='/About'>About Us</Link>
+            
             {
                 user.email ? (
                     <span>
